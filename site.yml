@@ -1,0 +1,59 @@
+---
+- hosts: all
+  gather_facts: true
+
+  tasks:
+
+  - name: "Testssl.sh"
+  - name: "Kali Wordlist"
+  - name: "Dante Socks Proxy"
+  - name: "Download KraejarJaggaer IP listing"
+  # https://www.digitalocean.com/community/tutorials/how-to-set-up-dante-proxy-on-ubuntu-20-04
+    # wgetspider
+    # gwl
+    # curlhack
+
+## pyenv 
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+# go install
+# export PATH=$PATH:/usr/local/go/bin:~/go/bin
+
+  # - name: "Bashrc customizations"
+# function wgetspider {
+#         wget -r --no-parent --spider -U "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.183" https://$1 2>&1 | tee $1.log
+# }
+
+# function gwl {
+#         grep '^--' $1
+# }
+
+# function curlhack {
+#         curl -H 'X-HackerOne-Username: <username>' -L -v $1
+# }
+
+# Install packages
+# httping
+# nmap
+# fping
+# mrtg
+# bat
+# tldr
+# tree
+# tmux
+# jq
+# dirb
+
+# Install MEG
+#https://github.com/tomnomnom/meg/releases/download/v0.3.0/meg-linux-amd64-0.3.0.tgz
+
+# Install subfinder
+# go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+
+# Install httpx
+# https://github.com/projectdiscovery/httpx
+
+# Run subfinder
+# subfinder <base url> | httpx 
