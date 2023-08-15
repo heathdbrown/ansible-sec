@@ -57,3 +57,17 @@
 
 # Run subfinder
 # subfinder <base url> | httpx 
+#
+# Install nuclei
+# go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+
+# Install notify
+# go install -v github.com/projectdiscovery/notify/cmd/notify@latest
+
+# Install anew
+# go install -v github.com/tomnomnom/anew@latest
+
+    
+# https://dhiyaneshgeek.github.io/bug/bounty/2020/02/06/recon-with-me/
+# chain commands together to look for new domains to spot vulns faster
+
