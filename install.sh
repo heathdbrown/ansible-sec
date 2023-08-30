@@ -1,7 +1,14 @@
 #!/bin/bash
 # based on BBT https://github.com/nahamsec/bbht/blob/master/install.sh
 
-declare -a arr=("httping"                                                                                                                                                                               "nmap"                                                                                                                                                                                  "fping"                                                                                                                                                                                 "batcat"                                                                                                                                                                                "tldr"                                                                                                                                                                                  "tmux"                                                                                                                                                                                  "jq"                                                                                                                                                                                    "dirb"
+declare -a arr=("httping"
+                "nmap"
+                "fping"
+                "batcat"
+                "tldr"
+                "tmux"
+                "jq"
+                "dirb"                                                                                                                                                                               "nmap"                                                                                                                                                                                  "fping"                                                                                                                                                                                 "batcat"                                                                                                                                                                                "tldr"                                                                                                                                                                                  "tmux"                                                                                                                                                                                  "jq"                                                                                                                                                                                    "dirb"
                 "ripgrep"
                 "nethogs"
                 "iptraf"
