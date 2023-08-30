@@ -59,7 +59,7 @@ function install_projectdiscovery_tools(){
                 echo "Installed subfinder..."
         fi
 
-        if [ -f "~/go/bin/httpx" ];                                                                                                                                             [52/834]
+        if [ -f "~/go/bin/httpx" ];
         then
                 echo "httpx installed"
         else
@@ -110,7 +110,7 @@ function install_gobuster(){
         if [ -f "$FILE" ];
         then
                 echo "GoBuster alerady installed..."
-        else                                                                                                                                                                     [0/834]
+        else
                 echo "Installing gobuster..."
                 go install github.com/OJ/gobuster/v3@latest
                 echo "Installed gobuster..."
