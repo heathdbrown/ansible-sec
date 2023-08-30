@@ -117,6 +117,38 @@ function install_gobuster(){
         fi
 }
 
+function install_meg(){
+    FILE="~/go/bin/meg"
+    if [ -f "$FILE" ];
+    then
+        echo "meg alerady installed..."
+    else
+        echo "Installing meg..."
+        go install github.com/tomnomnom/meg@latest
+        echo "Installed meg..."
+    fi
+    
+}
+
+function install_masscan(){
+    FILE="/usr/local/bin/masscan"
+
+    if [ -f "$FILE" ];
+    then
+        echo "MasScan already installed"
+    else
+        echo "Installing masScan..."
+        sudo apt-get -yq install git make gcc
+        git clone https://github.com/robertdavidgraham/masscan
+        cd masscan
+        make
+        make install
+        cd ~
+        echo "Installed masscan..."
+    fi
+
+}
+
 function download_seclists(){
         if [ -d ~/wordlists/seclists ];
         then
@@ -156,6 +188,8 @@ function main(){
     install_pyenv
     install_projectdiscovery_tools
     install_gobuster
+    install_meg
+    install_masscan
     download_seclists
     download_kj_ips
 }
