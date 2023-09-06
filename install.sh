@@ -44,7 +44,18 @@ function install_pyenv(){
 }
 
 function install_golang(){
-        package_install golang-go
+	GO_VERSION="1.20.1"
+	if [ -d "/usr/local/go/bin" ];
+	then
+		echo "Go $(go version) installed..."
+	else
+		wget https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz
+		tar -xzf go$GO_VERSION.linux-amd64.tar.gz
+		sudo mv go /usr/local/
+		rm -f go$GO_VERSION.linux-amd64.tar.gz
+		echo "Installed Go $(go version)"
+	fi
+        #package_install golang-go
         #TODO add to .bashrc
         #export PATH=$PATH:/usr/local/go/bin:~/go/bin
 }
@@ -175,6 +186,12 @@ function download_kj_ips(){
 }
 # Grab the bbht
 
+function install_git_lfs(){
+	curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+	package_install git-lfs
+	git lfs install
+}
+
 function main(){
     package_update
     package_upgrade
@@ -191,6 +208,7 @@ function main(){
     install_gobuster
     install_meg
     install_masscan
+    install_git_lfs
     download_seclists
     download_kj_ips
 }
