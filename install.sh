@@ -142,7 +142,7 @@ function install_masscan(){
         git clone https://github.com/robertdavidgraham/masscan
         cd masscan
         make
-        make install
+        sudo make install
         cd ~
         echo "Installed masscan..."
     fi
@@ -185,6 +185,7 @@ function main(){
             package_install $package
             echo "Installed $package"
     done
+    install_golang
     install_pyenv
     install_projectdiscovery_tools
     install_gobuster
