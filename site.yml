@@ -1,14 +1,39 @@
 ---
-- hosts: all
-  gather_facts: true
+- name: "Start ansible security playbook"
+  hosts: all
+  gather_facts: false
 
   tasks:
 
-  - name: "Testssl.sh"
-  - name: "Kali Wordlist"
-  - name: "Dante Socks Proxy"
-  - name: "Download KraejarJaggaer IP listing"
-  # https://www.digitalocean.com/community/tutorials/how-to-set-up-dante-proxy-on-ubuntu-20-04
+  # - name: "Testssl.sh Download"
+  #   ansible.builtin.get_url:
+  #     url: https://codeload.github.com/drwetter/testssl.sh/tar.gz/v3.0.8
+  #     dest: /tmp/testssl.sh.tar.gz
+  #     mode: '0440'
+  #   tags:
+  #     - download
+  #     - testssl
+  
+  - name: "Create Testssl.sh directory"
+    ansible.builtin.file:
+      path: ~/.local/bin/testssl.sh
+      state: directory
+    tags:
+      - testssl
+
+  - name: "Testssl.sh Extract"
+    ansible.builtin.unarchive:
+      src: https://codeload.github.com/drwetter/testssl.sh/tar.gz/v3.0.8
+      dest: tar -xzvf v3.0.8 ~/.local/bin/testssl.sh
+      remote_src: true
+    tags:
+      - extract
+      - testssl
+
+  # - name: "Kali Wordlist"
+  # - name: "Dante Socks Proxy"
+  # - name: "Download KraejarJaggaer IP listing"
+  # # https://www.digitalocean.com/community/tutorials/how-to-set-up-dante-proxy-on-ubuntu-20-04
     # wgetspider
     # gwl
     # curlhack
@@ -19,6 +44,7 @@
 # eval "$(pyenv init -)"
 
 # go install
+# sudo apt install golang-go
 # export PATH=$PATH:/usr/local/go/bin:~/go/bin
 
   # - name: "Bashrc customizations"
@@ -45,6 +71,9 @@
 # tmux
 # jq
 # dirb
+# ripgrep
+
+# Install recon-ng
 
 # Install MEG
 #https://github.com/tomnomnom/meg/releases/download/v0.3.0/meg-linux-amd64-0.3.0.tgz
@@ -53,7 +82,7 @@
 # go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
 # Install httpx
-# https://github.com/projectdiscovery/httpx
+# go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest 
 
 # Run subfinder
 # subfinder <base url> | httpx 
@@ -71,3 +100,15 @@
 # https://dhiyaneshgeek.github.io/bug/bounty/2020/02/06/recon-with-me/
 # chain commands together to look for new domains to spot vulns faster
 
+
+# Load scanners
+# install nikto
+
+# install gobuster 
+# directory enumeration
+# go install github.com/OJ/gobuster/v3@latest
+# run  gobuster dir -u https://example.com -w /wordlists/Discovery/Web-Content/big.txt  -n  -t 4 --delay 1s -o results.txt
+# https://hackertarget.com/gobuster-tutorial/
+#
+# Breakouts
+# https://gtfobins.github.io/ 
