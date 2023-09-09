@@ -90,6 +90,7 @@ function install_projectdiscovery_tools(){
                 echo "Installed nuclei..."
         fi
 
+
         if [ -f "~/go/bin/notify" ];
         then
                 echo "notify installed"
@@ -141,6 +142,29 @@ function install_meg(){
         echo "Installed meg..."
     fi
     
+}
+
+function install_naabu(){
+	package_install libpcap-dev
+        if [ -f "~/go/bin/naabu" ];
+        then
+                echo "naabu installed"
+        else
+                echo "Installing naabu..."
+		go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+                echo "Installed naabu..."
+        fi
+}
+
+function install_jaeles(){
+        if [ -f "~/go/bin/jaeles" ];
+        then
+                echo "jaeles installed"
+        else
+                echo "Installing jaeles..."
+		go install github.com/jaeles-project/jaeles@latest
+                echo "Installed jaeles..."
+        fi
 }
 
 function install_masscan(){
@@ -211,6 +235,8 @@ function main(){
     install_meg
     install_masscan
     install_git_lfs
+    install_naabu
+    install_jaeles
     download_seclists
     download_kj_ips
 }
